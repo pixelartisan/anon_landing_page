@@ -123,7 +123,7 @@ class Reviews extends React.Component<Props, State> {
 								</li>
 							</ul>
 						</FooterColumn>
-						<img src="http://via.placeholder.com/350x150" alt="" className="footer__logo"/>
+						<img src="/static/logo600x332dark-1fd1be4b9a378bc89ffccf9f0f7c1f33.png" alt="" className="footer__logo"/>
 					</Row>
 				</Container>
 			</footer>
