@@ -4,7 +4,7 @@
  This is the link to your domain...it redirects the user to your myaccount page.
  It is used on the site on buttons like: Buy now, Order now, Members, Buy HTTP proxies, etc.
  */
-export const SITE_URL = "https://myaccount.bestproxy.net/";
+export const MEMBERS_URL  = "https://myaccount.bestproxy.net/";
 
 /*
  Your site name - this appears in the footer
