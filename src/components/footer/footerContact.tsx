@@ -6,12 +6,6 @@ import {
     Col
 } from 'reactstrap';
 
-interface Link {
-    label: string,
-    url: string,
-    children: any,
-    native: boolean
-}
 
 interface Props {
     links: Array<Link>,
@@ -21,19 +15,20 @@ interface Props {
     location: string
 }
 
-const FooterContact: React.FunctionComponent<Props> = ({ title, content, company, location, links, children }) => (
+const FooterContact: React.FunctionComponent<Props> = ({ title, content, company, location, children }) => (
     <Col md={{ size: 6 }} className="footer__column">
         <h5>{title}</h5>
-        <br>
         <p>
             {content}
         </p>
-            <br>
-                <p>
-                    {company}
-                </p>
-                <p>{location}</p>
-
+        <p></p>
+        <p>
+            {company}
+        </p>
+        <p></p>
+        <p>
+            {location}
+        </p>
     </Col>
 );
 
