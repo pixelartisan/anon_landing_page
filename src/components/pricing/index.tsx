@@ -239,7 +239,7 @@ class Pricing extends React.Component<Props, State> {
 									onChange={this.handleProductChange.bind(this, 'selectedProductType')}
 								/>
 
-								<ul class="switch-module--list--243F7"><li class="switch-module--selected--X_l6_">no tags</li><li>residential</li></ul>
+
 
 								{
 									selectedProductTags && (
@@ -251,17 +251,7 @@ class Pricing extends React.Component<Props, State> {
 
 									)
 								}
-
-								{
-									selectedProductTags && (
-										<Switch
-											selectedOption={selectedProductTags}
-											options={selectedTag}
-											onChange={this.handleChange.bind(this, 'selectedTag')}
-										/>
-
-									)
-								}
+								
 
 								<div>
 									<Switch
