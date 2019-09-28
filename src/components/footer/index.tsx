@@ -55,6 +55,7 @@ class Reviews extends React.Component<Props, State> {
 		const { doSetScrollElement } = this.props;
 		doSetScrollElement(SCROLL_SUPPORT);
 	};
+	private logoLightSrc: any;
 
 	render() {
 		const { main } = this.props;
@@ -128,7 +129,7 @@ class Reviews extends React.Component<Props, State> {
 								</li>
 							</ul>
 						</FooterColumn>
-						<img src="http://via.placeholder.com/350x150" alt="" className="footer__logo"/>
+						<img src={this.logoLightSrc} alt="" className="footer__logo"/>
 					</Row>
 				</Container>
 			</footer>
