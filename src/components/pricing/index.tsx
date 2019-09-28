@@ -25,7 +25,6 @@ import {
 	PRICES_URL,
 	DEFAULT_TAG
 } from '../../constants';
-import { MEMBERS_URL } from '../../settings';
 
 // Interfaces
 import { IPricingResponse } from '../../interfaces';
@@ -287,7 +286,7 @@ class Pricing extends React.Component<Props, State> {
 											<div className="pricing-card__footer-value pricing-total text-left">${this.priceWithDiscount}</div>
 											<div className="pricing-card__footer-label text-left">{BILLING_CYCLES[selectedBillingCycle]}</div>
 										</div>
-										<a href={MEMBERS_URL} className="btn--green">Order now</a>
+										<Button className="btn--green">Order now</Button>
 									</div>
 								</footer>
 							</div>

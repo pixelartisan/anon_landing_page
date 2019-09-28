@@ -35,5 +35,6 @@ export const BACKEND_URL = 'https://backend.changemyip.com';
  Meta tags for SEO - description and keywords for this site
  */
 export const SEO_DESCRIPTION = 'Fully anonymous private proxies (shared or dedicated)';
+
 // The keywords need to be separated by comma
 export const SEO_KEYWORDS = 'proxy, socks, shared proxies, dedicated proxies, residential proxies, socksv5';
