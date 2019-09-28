@@ -14,6 +14,7 @@ import Preamble from '../generic/preamble';
 import FooterColumn from './footerColumn';
 import FooterContact from './footerContact';
 import ChatLink from '../generic/chatLink';
+//ADDED FOOTERCONTACT
 
 // Actions
 import { setScrollElement } from '../../actions';
