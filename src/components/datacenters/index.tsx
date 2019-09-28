@@ -249,13 +249,19 @@ class Datacenters extends React.Component<Props, State> {
 									onChange={this.handleChange.bind(this, 'selectedProductType')}
 								/>
 
-								<Select
+								<Switch
+									selectedOption={selectedTag}
+									options={tagOptions}
+									onChange={this.handleChange.bind(this, 'selectedTag')}
+								/>
+
+								<!--<Select
 									value={selectedTag}
 									options={tagOptions}
 									onChange={this.handleChange.bind(this, 'selectedTag')}
 									isClearable
 									placeholder="All tags"
-								/>
+								/>-->
 							</div>
                         </Col>
                     </Row>
