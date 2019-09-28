@@ -33,7 +33,9 @@ import { setLocationsData } from '../../actions';
 import '../../styles/components/datacenters.scss';
 
 // Constants
-import { LOCATIONS_URL } from '../../constants';
+import { LOCATIONS_URL,
+	DEFAULT_TAG
+} from '../../constants';
 
 // Interfaces
 import { ILocationsResponse, ICountries } from '../../interfaces';
@@ -80,7 +82,7 @@ class Datacenters extends React.Component<Props, State> {
 		this.state = {
 			selectedProduct: 'proxy',
 			selectedProductType: 'dedicated',
-			selectedTag: null
+			selectedTag: DEFAULT_TAG
 		};
 
 		this.mapContainer = React.createRef();
@@ -148,7 +150,8 @@ class Datacenters extends React.Component<Props, State> {
 
 	handleChange(field, value) {
 		this.setState({
-			[field]: value
+			[field]: value,
+			selectedTag: DEFAULT_TAG
 		});
 	}
 
