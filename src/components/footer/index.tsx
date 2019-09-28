@@ -36,7 +36,7 @@ import { MEMBERS_URL } from '../../settings';
 
 // Scss
 import '../../styles/components/footer.scss';
-
+import logoLightSrc from '../../images/logo600x332light.png';
 interface Props {
 	main: boolean,
 	doSetScrollElement(el: any): void
@@ -129,7 +129,7 @@ class Reviews extends React.Component<Props, State> {
 								</li>
 							</ul>
 						</FooterColumn>
-						<img src={this.logoLightSrc} alt="" className="footer__logo"/>
+						<img src={logoLightSrc} alt="" className="footer__logo"/>
 					</Row>
 				</Container>
 			</footer>
