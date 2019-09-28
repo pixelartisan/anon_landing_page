@@ -4,7 +4,7 @@ These informations will help you customize and deploy your own landing page !
 ### :vertical_traffic_light: Deploy your site
 - navigate to [GitHub](https://github.com) and **sign in/up**
 - click the button below  
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Alin13/landing_page)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/drsoftsrl/landing_page)
 - follow onscreen instructions:
     - Connect to GitHub - **log in** with you GitHub account
     - Configure your site - change the repository name if you want
@@ -56,12 +56,14 @@ These informations will help you customize and deploy your own landing page !
 
 ### :hammer: Change site settings
 - open file from `src/settings.js` and edit the constants as follows:
-    - **SITE_URL** - your domain url
+    - **MEMBERS_URL** - your domain url
     - **SITE_NAME** - site name that appears in the footer
     - **TOS_SITE_NAME** - site/company name that appears in terms of service
     - **TOS_LAST_UPDATE** - last update of terms of service
     - **TAWK_TO_WIDGET_URL** - the link of your chat widget
     - **BACKEND_URL** - your backend services url
+    - **SEO_DESCRIPTION** - your site description - used by search engines
+    - **SEO_KEYWORDS** - your site keywords - used by search engines
     - *... more details in the file*
 
 ### :telephone_receiver: Add your personal chat
