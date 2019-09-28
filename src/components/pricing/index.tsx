@@ -239,7 +239,11 @@ class Pricing extends React.Component<Props, State> {
 									onChange={this.handleProductChange.bind(this, 'selectedProductType')}
 								/>
 
-
+								<Switch
+									selectedOption={selectedProductTags}
+									options={selectedTag}
+									onChange={this.handleChange.bind(this, 'selectedTag')}
+								/>
 
 								{
 									selectedProductTags && (
@@ -251,7 +255,7 @@ class Pricing extends React.Component<Props, State> {
 
 									)
 								}
-								
+
 
 								<div>
 									<Switch
