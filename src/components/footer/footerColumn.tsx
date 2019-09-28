@@ -19,7 +19,7 @@ interface Props {
 }
 
 const FooterColumn: React.FunctionComponent<Props> = ({ title, links, children }) => (
-    <Col md={{ size: 4 }} className="footer__column">
+    <Col md={{ size: 2 }} className="footer__column">
         <h5>{title}</h5>
         {children || (
 			<ul>
