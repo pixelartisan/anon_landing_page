@@ -67,6 +67,12 @@ class Reviews extends React.Component<Props, State> {
 						We offer highly secure, (Dedicated or Shared) SOCKSv5 and Proxies.
 					</Preamble>
 					<Row>
+						<FooterContact
+							title="BESTPROXY.NET"
+							content="We offer highly secure, (Dedicated or Shared/Residential or Non-Residential) SOCKSv5 and Proxies."
+							company=""
+							location="Iasi, Romania"
+						/>
 						<FooterColumn
 							title="Our products"
 							links={[
