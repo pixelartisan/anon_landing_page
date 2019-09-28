@@ -27,7 +27,7 @@ const FooterColumn: React.FunctionComponent<Props> = ({ title, links, children }
 					<li key={index}>
                         {
 							native ? (
-                                <a href={url}>
+                                <a href={url}>np
                                     {label}
                                 </a>
                             ) : (
