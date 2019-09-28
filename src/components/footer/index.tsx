@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 import Preamble from '../generic/preamble';
 import FooterColumn from './footerColumn';
+import FooterContact from './footerContact';
 import ChatLink from '../generic/chatLink';
 
 // Actions
