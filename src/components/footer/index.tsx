@@ -70,8 +70,8 @@ class Reviews extends React.Component<Props, State> {
 						<FooterContact
 							title="BESTPROXY.NET"
 							content="We offer highly secure, (Dedicated or Shared/Residential or Non-Residential) SOCKSv5 and Proxies."
-							company=""
-							location="Iasi, Romania"
+							company="Sun World S.R.L"
+							location="Bld Tudor Vladimirescu Nr 105 Iasi, Romania"
 						/>
 						<FooterColumn
 							title="Our products"
