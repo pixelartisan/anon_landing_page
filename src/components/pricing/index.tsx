@@ -244,7 +244,7 @@ class Pricing extends React.Component<Props, State> {
 									options={selectedTag}
 									onChange={this.handleProductChange.bind(this, 'selectedTag')}
 								/>
-								
+
 
 								<div>
 									<Switch
