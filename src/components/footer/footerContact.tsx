@@ -10,14 +10,14 @@ import {
 interface Props {
     links: Array<Link>,
     title: string,
-    content: string, 
+    content: string,
     company: string,
     location: string
 }
 
 const FooterContact: React.FunctionComponent<Props> = ({ title, content, company, location, children }) => (
     <Col md={{ size: 6 }} className="footer__column text-left">
-        <h5>{title}</h5>
+        <h5 style={{color: "white"}} className="text-left">{title}</h5>
         <p>
             {content}
         </p>
