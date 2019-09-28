@@ -239,15 +239,12 @@ class Pricing extends React.Component<Props, State> {
 									onChange={this.handleProductChange.bind(this, 'selectedProductType')}
 								/>
 
-								{
-									selectedProductTags && (
-										<Select
-											value={selectedTag}
-											options={selectedProductTags}
-											onChange={this.handleChange.bind(this, 'selectedTag')}
-										/>
-									)
-								}
+								<Switch
+									selectedOption={selectedProductTags}
+									options={selectedTag}
+									onChange={this.handleProductChange.bind(this, 'selectedTag')}
+								/>
+								
 
 								<div>
 									<Switch
@@ -287,8 +284,12 @@ class Pricing extends React.Component<Props, State> {
 											<div className="pricing-card__footer-value pricing-total text-left">${this.priceWithDiscount}</div>
 											<div className="pricing-card__footer-label text-left">{BILLING_CYCLES[selectedBillingCycle]}</div>
 										</div>
-										<a href={MEMBERS_URL} className="btn--green">Order now</a>
 
+										<a
+											href={MEMBERS_URL}
+											className="btn btn--green">
+											Order now
+										</a>
 									</div>
 								</footer>
 							</div>
