@@ -287,7 +287,7 @@ class Pricing extends React.Component<Props, State> {
 											<div className="pricing-card__footer-value pricing-total text-left">${this.priceWithDiscount}</div>
 											<div className="pricing-card__footer-label text-left">{BILLING_CYCLES[selectedBillingCycle]}</div>
 										</div>
-										<Button href={MEMBERS_URL} className="btn--green">Order now</Button>
+										<a href={MEMBERS_URL} className="btn--green">Order now</a>
 									</div>
 								</footer>
 							</div>
