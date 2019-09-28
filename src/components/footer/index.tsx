@@ -32,6 +32,7 @@ import {
 	SCROLL_SUPPORT,
 	PRICING_ROUTE
 } from '../../constants';
+import { MEMBERS_URL } from '../../settings';
 
 // Scss
 import '../../styles/components/footer.scss';
@@ -100,6 +101,10 @@ class Reviews extends React.Component<Props, State> {
 							}, {
 								label: 'Restrictions',
 								url: REFUNDS_ROUTE
+							}, {
+								label: 'Members',
+								url: MEMBERS_URL,
+								native: true
 							}
 							]}
 						/>
@@ -123,7 +128,7 @@ class Reviews extends React.Component<Props, State> {
 								</li>
 							</ul>
 						</FooterColumn>
-						<img src="/static/logo600x332dark-1fd1be4b9a378bc89ffccf9f0f7c1f33.png" alt="" className="footer__logo"/>
+						<img src="http://via.placeholder.com/350x150" alt="" className="footer__logo"/>
 					</Row>
 				</Container>
 			</footer>
