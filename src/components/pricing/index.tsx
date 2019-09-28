@@ -250,7 +250,7 @@ class Pricing extends React.Component<Props, State> {
 
 									)
 								}
-								
+
 								{
 									selectedProductTags && (
 										<Switch
