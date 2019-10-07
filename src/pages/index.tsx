@@ -54,6 +54,15 @@ class MainPage extends React.Component<Props, State> {
 					<title>Anonymous proxies and SOCKSv5</title>
 					<meta name="description" content={SEO_DESCRIPTION} />
 					<meta name="keywords" content={SEO_KEYWORDS} />
+					<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148896132-1"></script>
+					<script>
+						{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'UA-148896132-1');
+						`}
+					</script>
 				</Helmet>
 
 				<MainRoute />
