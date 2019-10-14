@@ -77,7 +77,7 @@ class Support extends React.Component<Props, State> {
 		const { email, message } = this.state;
 
 		return (
-			<section className="support section section--gradient__1">
+			<section id="support" className="support section section--gradient__1">
 				<Container>
 					<Preamble light title="Support">
 						We offer various layers of support.
