@@ -28,7 +28,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Features = () => (
-    <section className="features section section--gradient__1">
+    <section id="features" className="features section section--gradient__1">
         <Container>
             <Preamble light title="Unique proxy features">
                 Our infrastructure is unique, battle-tested and carefully monitored by

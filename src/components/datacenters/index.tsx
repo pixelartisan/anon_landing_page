@@ -179,7 +179,7 @@ class Datacenters extends React.Component<Props, State> {
 		}));
 
         return (
-            <section className="datacenters section section--padding__bottom">
+            <section id="datacenters" className="datacenters section section--padding__bottom">
                 <Container>
                     <Preamble title="Global Datacenter Coverage">
 						Our datacenters are spread across the globe and we're constantly refreshing our lists to ensure
