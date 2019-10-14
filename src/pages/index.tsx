@@ -63,6 +63,17 @@ class MainPage extends React.Component<Props, State> {
 						gtag('config', 'UA-148896132-1');
 						`}
 					</script>
+
+					<script async src="https://www.googletagmanager.com/gtag/js?id=AW-701939187"></script>
+					<script>
+						{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'AW-701939187');
+						`}
+					</script>
+					
 				</Helmet>
 
 				<MainRoute />
