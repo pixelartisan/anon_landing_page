@@ -25,6 +25,7 @@ import {
 	PRICES_URL,
 	DEFAULT_TAG
 } from '../../constants';
+import { MEMBERS_URL } from '../../settings';
 
 // Interfaces
 import { IPricingResponse } from '../../interfaces';
@@ -37,7 +38,6 @@ import { setPricingData } from '../../actions';
 
 // Utils
 import get from 'lodash/get';
-import {MEMBERS_URL} from "../../settings";
 
 const products = [{
 	value: 'proxy',
@@ -108,6 +108,20 @@ class Pricing extends React.Component<Props, State> {
 		});
 	}
 
+	handleTagChange(field, value) {
+		const { selectedTag } = this.state;
+		const newSelectedTag = this.tagsByService.filter(tag => tag.value === value)[0];
+		if (selectedTag.value === newSelectedTag.value) {
+			this.setState({
+				[field]: DEFAULT_TAG
+			});
+		} else {
+			this.setState({
+				[field]: newSelectedTag
+			});
+		}
+	}
+
 	handleProductChange(field, value) {
 		this.setState({
 			[field]: value,
@@ -119,10 +133,12 @@ class Pricing extends React.Component<Props, State> {
 		const { prices } = this.props;
 		const {
 			selectedProductType,
-			selectedProduct
+			selectedProduct,
+			selectedTag,
 		} = this.state;
 		const selectedProductKey = selectedProductType === 'shared' ? `shared_${selectedProduct}` : selectedProduct;
-		const selectedProductBasePrice = prices[selectedProductKey] && prices[selectedProductKey].price || 0;
+		const multiplier = selectedTag ? parseInt(selectedTag.multiplier) : 1;
+		const selectedProductBasePrice = prices[selectedProductKey] && prices[selectedProductKey].price * multiplier || 0;
 
 		return parseFloat(selectedProductBasePrice);
 	}
@@ -215,7 +231,8 @@ class Pricing extends React.Component<Props, State> {
 	    } = this.state;
 	    const { billingCycles } = this.props;
 	    const selectedProductTags = this.tagsByService;
-
+	    const newS = selectedProductTags ? [...selectedProductTags] : [];
+	    newS.shift();
         return (
             <section className="pricing section section--padding__bottom">
                 <Container>
@@ -239,16 +256,13 @@ class Pricing extends React.Component<Props, State> {
 									onChange={this.handleProductChange.bind(this, 'selectedProductType')}
 								/>
 
-
-
 								{
 									selectedProductTags && (
-										<Select
-											value={selectedTag}
-											options={selectedProductTags}
-											onChange={this.handleChange.bind(this, 'selectedTag')}
+										<Switch
+											selectedOption={selectedTag.value}
+											options={newS}
+											onChange={this.handleTagChange.bind(this, 'selectedTag')}
 										/>
-
 									)
 								}
 
@@ -290,12 +304,7 @@ class Pricing extends React.Component<Props, State> {
 											<div className="pricing-card__footer-value pricing-total text-left">${this.priceWithDiscount}</div>
 											<div className="pricing-card__footer-label text-left">{BILLING_CYCLES[selectedBillingCycle]}</div>
 										</div>
-
-										<a
-											href={MEMBERS_URL}
-											className="btn btn--green">
-											Order now
-										</a>
+										<Button href={MEMBERS_URL} className="btn--green">Order now</Button>
 									</div>
 								</footer>
 							</div>
