@@ -95,11 +95,7 @@ class NavBar extends React.Component<Props, State> {
 									</NavLink>
 								</Link>
 							</NavItem>
-                            <NavItem>
-                                <NavLink tag="a" className="text-uppercase" href={BLOG_URL}>
-                                    Blog
-                                </NavLink>
-                            </NavItem>
+
 
 							<MenuItem scrollComponent={SCROLL_DATACENTERS} text="Datacenters" />
                             <MenuItem scrollComponent={SCROLL_FEATURES} text="Features" />
@@ -110,6 +106,11 @@ class NavBar extends React.Component<Props, State> {
 									Members
 								</NavLink>
 							</NavItem>
+                            <NavItem>
+                                <NavLink tag="a" className="text-uppercase" href={BLOG_URL}>
+                                    Blog
+                                </NavLink>
+                            </NavItem>
                         </Nav>
                         <Nav className="ml-auto justify-content-end align-items-start align-items-lg-center" navbar>
                             <NavItem>
