@@ -87,9 +87,7 @@ class MainPage extends React.Component<Props, State> {
 						fbq('track', 'PageView');
 						`}
 					</script>
-					<noscript>
-						<img className="d-none" src="https://www.facebook.com/tr?id=543682809548921&ev=PageView&noscript=1"/>
-					</noscript>
+
 
 				</Helmet>
 
