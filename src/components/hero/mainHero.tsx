@@ -17,6 +17,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 // Utils
 import get from 'lodash/get';
+import Helmet from "react-helmet";
 
 interface Props {
 	minPrice: string
@@ -29,11 +30,15 @@ const MainHero = ({ minPrice }: Props) => (
 				xl={{ size: 8, offset: 2 }}
 				lg={{ size: 10, offset: 1 }}
 			>
+		
+					<img src="https://www.facebook.com/tr?id=543682809548921&ev=PageView&noscript=1"/>
+
 				<h1 className="main-content__title mb-3 mb-lg-4 h2">
 					Anonymous
 					<br />
 					HTTP & SOCKSv5 Proxies
 				</h1>
+
 				<p className="main-content__lead lead mb-4">
 					Fully anonymous private proxies
 					<br />
