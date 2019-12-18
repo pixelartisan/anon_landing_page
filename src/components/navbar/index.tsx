@@ -31,8 +31,7 @@ import {
     SCROLL_SUPPORT,
 	PRICING_ROUTE
 } from '../../constants';
-import { MEMBERS_URL } from '../../settings';
-
+import { MEMBERS_URL, BLOG_URL } from '../../settings';
 interface Props {
 	MenuItem: any
 }
@@ -96,6 +95,11 @@ class NavBar extends React.Component<Props, State> {
 									</NavLink>
 								</Link>
 							</NavItem>
+                            <NavItem>
+                                <NavLink tag="a" className="text-uppercase" href={BLOG_URL}>
+                                    Blog
+                                </NavLink>
+                            </NavItem>
 
 							<MenuItem scrollComponent={SCROLL_DATACENTERS} text="Datacenters" />
                             <MenuItem scrollComponent={SCROLL_FEATURES} text="Features" />

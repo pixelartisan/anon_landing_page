@@ -6,6 +6,7 @@
  */
 export const MEMBERS_URL  = "https://myaccount.bestproxy.net/";
 
+export const BLOG_URL = "https://blog.bestproxy.net/";
 /*
  Your site name - this appears in the footer
  */
