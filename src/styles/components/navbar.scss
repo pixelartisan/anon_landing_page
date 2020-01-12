@@ -71,11 +71,11 @@
           .nav-link {
 
             &:not(.nav-link__cta) {
-              padding: 15px 0;
+              padding: 17px 0;
               color: lighten($header-color, 10%);
 
               @media (max-width: 991px) {
-                padding: 8px 0;
+                padding: 15px 0;
               }
             }
 
@@ -194,11 +194,11 @@
           font-size: 13px;
           text-transform: uppercase;
           font-weight: 600;
-
+ 
           @media (max-width: 991px) {
 
             &:not(.nav-link__cta) {
-              padding: 8px 0;
+              padding: 15px 0;
               color: lighten($header-color, 10%);
 
               &:hover {
