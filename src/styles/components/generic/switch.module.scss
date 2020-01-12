@@ -32,6 +32,14 @@
       border-radius: 0.5rem;
     }
 
+    &:not(:first-of-type) {
+      @media (max-width: 640px) {
+        margin-top: 20px;
+      }
+
+    }
+
+
     &.selected {
       background-color: $primary-color;
       color: $text-color-light;
