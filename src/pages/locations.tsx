@@ -18,7 +18,7 @@ import {
 } from '../settings';
 
 import Datacenters from "../components/datacenters";
-import Locations from "../components/locations";
+import Locationscomponent from "../components/locationscomponent";
 
 const Locations = () => (
     <React.Fragment>
@@ -34,7 +34,7 @@ const Locations = () => (
             <Datacenters/>
             <section className="section section--padding">
                 <Preamble light title="Our locations and products">
-                    <Locations/>
+                    <Locationscomponent/>
                 </Preamble>
             </section>
         </main>
