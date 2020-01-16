@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-//import LOCATIONS_URL from '../../constants';
+import LOCATIONS_URL from '../../constants';
 
-import data from 'https://backend.changemyip.com/datacenters/locations/';
 
-const continents = data.data.continents;
+
+fetch(LOCATIONS_URL)
+.then(response => response.json())
+	.then((jsonData) => {
+		const continents = jsonData.data.continents;
+	})
+	.catch((error) => {
+		// handle your errors here
+		console.error(error)
+	})
+
 
 class Contintents extends Component {
 	render() {
