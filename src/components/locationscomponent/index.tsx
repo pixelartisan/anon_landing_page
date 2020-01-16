@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import LOCATIONS_URL from '../../constants';
+//import LOCATIONS_URL from '../../constants';
 
-import data from LOCATIONS_URL;
+import data from 'https://backend.changemyip.com/datacenters/locations/';
 
 const continents = data.data.continents;
 
