@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import LOCATIONS_URL, {PRICES_URL} from '../../constants';
-import { fetch as fetchPolyfill } from 'whatwg-fetch';
 import requestHandler from '../../utils/request';
+import {LOCATIONS_URL, PRICES_URL} from '../../constants';
 
 const continents = '';
+
+const { contintentsList } = this.props;
 
 requestHandler(LOCATIONS_URL)
 	.then(({ data, error }) => {
@@ -12,16 +13,17 @@ requestHandler(LOCATIONS_URL)
 			return;
 		}
 
-		continents = data.data.continents;
+		contintentsList(data);
 	})
 	.catch(console.error);
+
 
 
 class Contintents extends Component {
 	render() {
 		return (
 			<ul>
-				{continents.map(s => (<li>{s}</li>))}
+				{contintentsList.map(s => (<li>{s}</li>))}
 			</ul>
 		);
 	}
