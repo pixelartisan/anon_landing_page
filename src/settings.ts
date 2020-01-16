@@ -15,7 +15,7 @@ export const SITE_NAME = "BESTPROXY";
 /*
  The name of you site that appears in Terms of service section - it can be you domain, your company name, etc.
  */
-export const TOS_SITE_NAME = 'Sun World SRL';
+export const TOS_SITE_NAME = 'GLOBAL LUXURY CONNECTION SRL';
 
 /*
  The date when the terms of service where last updated.
