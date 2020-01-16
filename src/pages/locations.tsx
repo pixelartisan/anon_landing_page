@@ -18,7 +18,11 @@ import {
 } from '../settings';
 
 import Datacenters from "../components/datacenters";
-import Locationscomponent from "../components/locationscomponent";
+import data from "../locations.json";
+
+const contintentsList = data.continents;
+
+console.log(contintentsList);
 
 const Locations = () => (
     <React.Fragment>
