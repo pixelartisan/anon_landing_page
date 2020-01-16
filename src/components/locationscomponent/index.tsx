@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LOCATIONS_URL, {PRICES_URL} from '../../constants';
+import { fetch as fetchPolyfill } from 'whatwg-fetch';
 import requestHandler from '../../utils/request';
 
 const continents = '';
