@@ -6,10 +6,10 @@ import data from "../../locations.json";
 
 const contintentsList = data.continents;
 
-
+console.log(contintentsList);
 
 class Contintents extends Component {
 
-	console.log(contintentsList);
+
 }
 export default Contintents;
