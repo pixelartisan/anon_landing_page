@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import LOCATIONS_URL from '../../constants';
+import LOCATIONS_URL, {PRICES_URL} from '../../constants';
+import requestHandler from '../../utils/request';
 
+const continents = '';
 
+requestHandler(LOCATIONS_URL)
+	.then(({ data, error }) => {
+		if (error) {
+			console.error(error);
+			return;
+		}
 
-fetch(LOCATIONS_URL)
-.then(response => response.json())
-	.then((jsonData) => {
-		const continents = jsonData.data.continents;
+		continents = data.data.continents;
 	})
-	.catch((error) => {
-		// handle your errors here
-		console.error(error)
-	})
+	.catch(console.error);
 
 
 class Contintents extends Component {
