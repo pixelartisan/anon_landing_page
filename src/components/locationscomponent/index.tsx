@@ -10,12 +10,6 @@ const contintentsList = data.continents;
 
 class Contintents extends Component {
 
-	render() {
-		return (
-			<ul>
-				{contintentsList.map(s => (<li>{s}</li>))}
-			</ul>
-		);
-	}
+	console.log(contintentsList);
 }
 export default Contintents;
