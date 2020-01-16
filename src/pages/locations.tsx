@@ -38,7 +38,7 @@ const Locations = () => (
             <Datacenters/>
             <section className="section section--padding">
                 <Preamble light title="Our locations and products">
-                    <Locationscomponent/>
+
                 </Preamble>
             </section>
         </main>
