@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import LOCATIONS_URL from '../constants';
+import LOCATIONS_URL, {SCROLL_DATACENTERS} from '../constants';
 // Components
 import NavBar from '../components/navbar';
 import MenuItem from '../components/navbar/secondaryMenuItem';
@@ -19,6 +19,7 @@ import {
 
 import Datacenters from "../components/datacenters";
 import data from "../locations.json";
+import {Element} from "react-scroll";
 
 const contintentsList = data.continents;
 
@@ -35,7 +36,10 @@ const Locations = () => (
 
         <main className="policy-hero">
             <NavBar MenuItem={MenuItem}/>
-            <Datacenters/>
+            <Element name={SCROLL_DATACENTERS}>
+                <Datacenters />
+            </Element>
+
             <section className="section section--padding">
                 <Preamble light title="Our locations and products">
 
