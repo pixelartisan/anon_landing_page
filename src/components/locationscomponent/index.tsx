@@ -4,7 +4,7 @@ import {LOCATIONS_URL} from '../../constants';
 
 import data from "../../locations.json";
 
-const contintentsList = data.SocialMedias;
+const contintentsList = data.continents;
 
 
 
