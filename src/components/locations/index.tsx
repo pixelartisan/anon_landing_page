@@ -5,7 +5,7 @@ import data from LOCATIONS_URL;
 
 const continents = data.data.continents;
 
-class Locations extends Component {
+class Contintents extends Component {
 	render() {
 		return (
 			<ul>
@@ -14,4 +14,4 @@ class Locations extends Component {
 		);
 	}
 }
-export default Locations;
+export default Contintents;

@@ -16,7 +16,7 @@ import shadeColor from '../../utils/shadeColor';
 import WorldMap from "../../utils/world-50m.json";
 import get from 'lodash/get';
 
-// Components/
+// Components
 import {
     Col,
     Container,
