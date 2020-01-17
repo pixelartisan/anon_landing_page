@@ -248,13 +248,13 @@ class Datacenters2 extends React.Component<Props, State> {
 
                                         switch (productName) {
                                             case 'shared_proxy':
-                                                return <a className={'red'} key={i} href={countryName}>[ Shared Proxy ] </a>
+                                                return <spam className={'red'} key={i} >[ Shared Proxy ] </spam>
                                             case 'shared_socks':
-                                                return <a className={'green'} key={i} href={countryName}>[ Shared SOCKS5 ] </a>
+                                                return <span className={'green'} key={i} >[ Shared SOCKS5 ] </span>
                                             case 'socks':
-                                                return <a className={'blue'} key={i} href={countryName}>[ Dedicated SOCKS5 ] </a>
+                                                return <span className={'blue'} key={i} >[ Dedicated SOCKS5 ] </span>
                                             case 'proxy':
-                                                return <a className={'purple'} key={i} href={countryName}>[ Dedicated Proxy ] </a>
+                                                return <span className={'purple'} key={i} >[ Dedicated Proxy ] </span>
 
                                         }
 
