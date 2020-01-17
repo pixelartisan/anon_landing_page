@@ -1,14 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import LOCATIONS_URL, {SCROLL_DATACENTERS} from '../constants';
 // Components
 import NavBar from '../components/navbar';
 import MenuItem from '../components/navbar/secondaryMenuItem';
 import Footer from '../components/footer';
 import Extra from '../components/extra';
 import Preamble from '../components/generic/preamble';
-const response = await fetch(LOCATIONS_URL);
-const json = await response.json();
+
+
 
 // Constants
 import {
@@ -18,13 +17,10 @@ import {
     SEO_DESCRIPTION
 } from '../settings';
 
-import Datacenters from "../components/datacenters";
-import data from "../locations.json";
+import Datacenters2 from "../components/datacenters2";
 import {Element} from "react-scroll";
 
-const contintentsList = data.continents;
 
-console.log(json);
 
 const Locations = () => (
     <React.Fragment>
@@ -38,7 +34,7 @@ const Locations = () => (
         <main className="policy-hero">
             <NavBar MenuItem={MenuItem}/>
             <Element name={SCROLL_DATACENTERS}>
-                <Datacenters />
+                <Datacenters2 />
             </Element>
 
             <section className="section section--padding">
