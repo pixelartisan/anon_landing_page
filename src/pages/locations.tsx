@@ -35,17 +35,15 @@ const Locations = () => (
 
         <main className="policy-hero">
             <NavBar MenuItem={MenuItem}/>
+            <section className="section section--padding">
+                <Preamble title="Buy Proxies now">
+                </Preamble>
+            </section>
 
-            <Preamble title="Buy Proxies now">
-            </Preamble>
         </main>
         <Element name={SCROLL_DATACENTERS}>
             <section className="extra section section--padding">
                 <Datacenters2/>
-            </section>
-            <section className="section section--padding">
-                <Preamble light title="Our locations and products">
-                </Preamble>
             </section>
         </Element>
         <Extra/>
