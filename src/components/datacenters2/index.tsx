@@ -103,6 +103,7 @@ class Datacenters2 extends React.Component<Props, State> {
                     return;
                 }
 
+                console.log(data);
                 doSetLocationsData(data);
             })
             .catch(console.error);
@@ -295,7 +296,7 @@ class Datacenters2 extends React.Component<Props, State> {
                     </Row>
                     <Preamble  title="Our locations and products">
                         <ul>
-                            {countries.map(s => (<li>{s}</li>))}
+
                         </ul>
                     </Preamble>
                 </Container>
