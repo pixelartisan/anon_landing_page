@@ -7,7 +7,8 @@ import MenuItem from '../components/navbar/secondaryMenuItem';
 import Footer from '../components/footer';
 import Extra from '../components/extra';
 import Preamble from '../components/generic/preamble';
-
+const response = await fetch(LOCATIONS_URL);
+const json = await response.json();
 
 // Constants
 import {
@@ -23,7 +24,7 @@ import {Element} from "react-scroll";
 
 const contintentsList = data.continents;
 
-console.log(contintentsList);
+console.log(json);
 
 const Locations = () => (
     <React.Fragment>
