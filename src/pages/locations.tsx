@@ -8,7 +8,9 @@ import Extra from '../components/extra';
 import Preamble from '../components/generic/preamble';
 
 
-
+import {
+    SCROLL_DATACENTERS,
+} from '../constants';
 // Constants
 import {
     TOS_SITE_NAME,
