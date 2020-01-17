@@ -55,6 +55,7 @@ const productTypes = [{
     label: 'shared'
 }];
 
+
 interface Props {
     doSetLocationsData(data: object): void,
 
@@ -103,7 +104,7 @@ class Datacenters2 extends React.Component<Props, State> {
                     return;
                 }
 
-                console.log(data);
+
                 doSetLocationsData(data);
             })
             .catch(console.error);
@@ -206,106 +207,67 @@ class Datacenters2 extends React.Component<Props, State> {
 
     render() {
         const {selectedProduct, selectedProductType, selectedTag} = this.state;
+
+
         const {allAvailableTags} = this.props;
         const self = this;
         const tagOptions = allAvailableTags.map((tag) => ({
             value: tag,
             label: tag
         }));
+
         const selectedTagsWithoutDefault = tagOptions ? [...tagOptions] : [];
         selectedTagsWithoutDefault.shift();
 
         return (
             <section className="datacenters section ">
                 <Container>
-                    <Preamble title="Global Datacenter Coverage">
-                        Our datacenters are spread across the globe and we're constantly refreshing our lists to ensure
-                        a rich set of countries and locations that you can chose from.
+                    <Preamble title="Our available locations and services">
                     </Preamble>
-                    <Row>
-                        <Col lg={{size: 12}}>
-                            <div ref={this.mapContainer}>
-                                <ComposableMap style={{
-                                    width: "100%",
-                                    height: "auto",
-                                }}>
-                                    <ZoomableGroup center={[0, 25]}>
-                                        <Geographies geography={WorldMap} disableOptimization>
-                                            {
-                                                (geographies, projection) => geographies.map((geography, i) => {
-                                                    const countryColor = self.countryColor(geography);
-                                                    const hasProduct = self.countryHasSelectedProducts(geography.properties.ISO_A3);
 
-                                                    return <Geography
-                                                        key={`${geography.properties.ISO_A3}-${i}`}
-                                                        cacheId={`${geography.properties.ISO_A3}-${i}`}
-                                                        geography={geography}
-                                                        projection={projection}
-                                                        onMouseMove={self.handleMove}
-                                                        onMouseLeave={self.handleLeave}
-                                                        style={{
-                                                            default: {
-                                                                fill: countryColor,
-                                                                stroke: shadeColor(mapBaseColor, 0.7),
-                                                                strokeWidth: 0.75,
-                                                                outline: "none",
-                                                            },
-                                                            hover: {
-                                                                fill: countryColor,
-                                                                stroke: shadeColor(mapBaseColor, 0.7),
-                                                                strokeWidth: 0.75,
-                                                                outline: "none",
-                                                            },
-                                                            pressed: {
-                                                                fill: shadeColor(countryColor, hasProduct ? -0.2 : 0),
-                                                                stroke: shadeColor(mapBaseColor, 0.7),
-                                                                strokeWidth: 0.75,
-                                                                outline: "none",
-                                                            },
-                                                        }}
-                                                    />
-                                                })
-                                            }
-                                        </Geographies>
-                                    </ZoomableGroup>
-                                </ComposableMap>
 
-                                <Tooltip/>
-                            </div>
+                    <table className="table table-striped w-100">
+                        <thead>
+                        <tr>
+                            <th scope="col">ISO</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Products</th>
+                            <th scope="col">Tags</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.props.countries.map((item, key) =>
+                            <tr key={key}>
+                                <th scope="row">{item.iso}</th>
+                                <td>{item.name}</td>
 
-                            <div className="text-center mt-3">
-                                <Switch
-                                    selectedOption={selectedProduct}
-                                    options={products}
-                                    onChange={this.handleChange.bind(this, 'selectedProduct')}
-                                />
+                                <td>{item.products.map((product, i) => {
+                                        const countryName = item.name;
+                                        const productName = product;
 
-                                <Switch
-                                    selectedOption={selectedProductType}
-                                    options={productTypes}
-                                    onChange={this.handleChange.bind(this, 'selectedProductType')}
-                                />
 
-                                <Switch
-                                    selectedOption={selectedTag.value}
-                                    options={selectedTagsWithoutDefault}
-                                    onChange={this.handleTagChange.bind(this, 'selectedTag')}
-                                />
-                            </div>
-                        </Col>
-                    </Row>
-                    <Preamble title="Our locations and products">
-                        {
-                            this.countries.map((countryObj) => {
-                                return (
-                                    <div>
-                                        <p>Name: {countryObj.name}</p>
-                                        <p>ISO Code: {countryObj.iso_3166}</p>
-                                    </div>
-                                );
-                            },
-                        }
-                    </Preamble>
+                                        switch (productName) {
+                                            case 'shared_proxy':
+                                                return <a className={'red'} key={i} href={countryName}>[ Shared Proxy ] </a>
+                                            case 'shared_socks':
+                                                return <a className={'green'} key={i} href={countryName}>[ Shared SOCKS5 ] </a>
+                                            case 'socks':
+                                                return <a className={'blue'} key={i} href={countryName}>[ Dedicated SOCKS5 ] </a>
+                                            case 'proxy':
+                                                return <a className={'purple'} key={i} href={countryName}>[ Dedicated Proxy ] </a>
+
+                                        }
+
+                                    }
+                                )}</td>
+
+                                <td><span>{item.tags[1]}</span></td>
+
+                            </tr>
+                        )}
+
+                        </tbody>
+                    </table>
                 </Container>
             </section>
         );

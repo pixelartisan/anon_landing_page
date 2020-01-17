@@ -36,10 +36,8 @@ const Locations = () => (
         <main className="policy-hero">
             <NavBar MenuItem={MenuItem}/>
             <section className="section section--padding">
-                <Preamble light title="Buy Proxies now">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cupiditate, debitis excepturi
-                    fuga illum iusto magni necessitatibus, non optio perferendis possimus quas quos reprehenderit
-                    repudiandae sit soluta totam unde voluptas?
+                <Preamble light title="Buy Proxies and SOCKS5 now">
+                    If you're looking to purchase proxies, sokcks5 from us look no further because we have them available in our stock.
                 </Preamble>
             </section>
 

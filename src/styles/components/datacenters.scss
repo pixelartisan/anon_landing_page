@@ -12,4 +12,35 @@
       }
     }
   }
+
+  .table {
+    td{
+      font-weight: 600;
+    }
+    span{
+      font-weight: 600;
+    }
+    a {
+      font-weight: 600;
+
+      &.red {
+        color: red;
+      }
+
+      &.blue {
+        color: blue;
+      }
+
+      &.purple {
+        color: purple;
+      }
+
+      &.green {
+        color: green;
+      }
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
 }

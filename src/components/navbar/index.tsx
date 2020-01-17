@@ -26,6 +26,7 @@ import logoDarkSrc from '../../images/logo600x332dark.png';
 
 // Constants
 import {
+    LOCATIONS_ROUTE,
     SCROLL_DATACENTERS,
     SCROLL_FEATURES,
     SCROLL_SUPPORT,
@@ -95,7 +96,13 @@ class NavBar extends React.Component<Props, State> {
 									</NavLink>
 								</Link>
 							</NavItem>
-
+                            <NavItem>
+                                <Link to={LOCATIONS_ROUTE}>
+                                    <NavLink tag="div" className="text-uppercase">
+                                        Locations
+                                    </NavLink>
+                                </Link>
+                            </NavItem>
 
 							<MenuItem scrollComponent={SCROLL_DATACENTERS} text="Datacenters" />
                             <MenuItem scrollComponent={SCROLL_FEATURES} text="Features" />

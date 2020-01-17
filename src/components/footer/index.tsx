@@ -24,6 +24,7 @@ import Scroll, { Link as ScrollLink } from 'react-scroll';
 
 // Constants
 import {
+	LOCATIONS_ROUTE,
     HTTPS_PROXY_ROUTE,
 	SOCKS_PROXY_ROUTE,
 	DEDICATED_PROXY_ROUTE,
@@ -76,6 +77,10 @@ class Reviews extends React.Component<Props, State> {
 						<FooterColumn
 							title="Our products"
 							links={[
+								{
+									label: 'locations',
+									url: LOCATIONS_ROUTE
+								},
 								{
 									label: 'HTTP Proxy',
 									url: HTTPS_PROXY_ROUTE

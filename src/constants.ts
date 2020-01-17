@@ -6,6 +6,7 @@ export const SUPPORT_URL = `${BACKEND_URL}/support/`;
 
 // App routes
 const PRODUCTS_BASE = '/products';
+
 export const HTTPS_PROXY_ROUTE = `${PRODUCTS_BASE}/http-proxy`;
 export const SOCKS_PROXY_ROUTE = `${PRODUCTS_BASE}/socks-proxy`;
 export const DEDICATED_PROXY_ROUTE = `${PRODUCTS_BASE}/dedicated-proxy`;
@@ -15,6 +16,7 @@ export const REFUNDS_ROUTE = '/refunds';
 export const PRIVACY_ROUTE = '/privacy-policy';
 export const PRICING_ROUTE = '/pricing';
 export const LOCATIONS_ROUTE = '/locations';
+
 
 // App config
 export const SCROLL_DATACENTERS = 'datacenters';
@@ -39,3 +41,5 @@ export const SET_LOCATIONS_DATA = 'SET_LOCATIONS_DATA';
 export const SET_SCROLL_ELEMENT = 'SET_SCROLL_ELEMENT';
 export const SET_TAWK_TO_SCRIPT_LOADED = 'SET_TAWK_TO_SCRIPT_LOADED';
 export const SET_TAWK_STATUS = 'SET_TAWK_STATUS';
+
+
