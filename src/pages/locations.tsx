@@ -37,7 +37,7 @@ const Locations = () => (
             <NavBar MenuItem={MenuItem}/>
             <section className="section section--padding">
                 <Preamble light title="Buy Proxies and SOCKS5 now">
-                    If you're looking to purchase proxies, sokcks5 from us look no further because we have them available in our stock.
+                    If you're looking to purchase proxies, socks5 from us look no further because we have them available in our stock.
                 </Preamble>
             </section>
 
