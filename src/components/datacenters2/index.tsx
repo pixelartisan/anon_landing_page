@@ -295,9 +295,16 @@ class Datacenters2 extends React.Component<Props, State> {
                         </Col>
                     </Row>
                     <Preamble  title="Our locations and products">
-                        <ul>
-
-                        </ul>
+                        <div className="newmessage">
+                            {this.countries.map((countryObj) => {
+                                return (
+                                    <div>
+                                        <p>Name: {countryObj.name}</p>
+                                        <p>ISO Code: {countryObj.iso_3166}</p>
+                                    </div>
+                                );
+                            }}
+                        </div>
                     </Preamble>
                 </Container>
             </section>
