@@ -36,14 +36,15 @@ const Locations = () => (
         <main className="policy-hero">
             <NavBar MenuItem={MenuItem}/>
             <Element name={SCROLL_DATACENTERS}>
-                <Datacenters2 />
+                <section className="section section--padding">
+                    <Datacenters2 />
+                    <Preamble light title="Our locations and products">
+
+                    </Preamble>
+                </section>
             </Element>
 
-            <section className="section section--padding">
-                <Preamble light title="Our locations and products">
 
-                </Preamble>
-            </section>
         </main>
 
         <Extra/>
