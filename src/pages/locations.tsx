@@ -16,12 +16,12 @@ import {
     TOS_SITE_NAME,
     TOS_LAST_UPDATE,
     SEO_KEYWORDS,
-    SEO_DESCRIPTION
+    SEO_DESCRIPTION, MEMBERS_URL
 } from '../settings';
 
 import Datacenters2 from "../components/datacenters2";
 import {Element} from "react-scroll";
-
+import {Container} from "reactstrap";
 
 
 const Locations = () => (
@@ -35,16 +35,19 @@ const Locations = () => (
 
         <main className="policy-hero">
             <NavBar MenuItem={MenuItem}/>
-            <Element name={SCROLL_DATACENTERS}>
-                <section className="section section--padding">
-                    <Datacenters2 />
-                    <Preamble light title="Our locations and products">
 
+            <Preamble title="Buy Proxies now">
+            </Preamble>
+
+            <Element name={SCROLL_DATACENTERS}>
+                <section className="extra section section--padding">
+                    <Datacenters2/>
+                </section>
+                <section className="section section--padding">
+                    <Preamble light title="Our locations and products">
                     </Preamble>
                 </section>
             </Element>
-
-
         </main>
 
         <Extra/>
