@@ -293,7 +293,7 @@ class Datacenters2 extends React.Component<Props, State> {
                             </div>
                         </Col>
                     </Row>
-                    <Preamble light title="Our locations and products">
+                    <Preamble  title="Our locations and products">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate, eum eveniet ipsum
                         iusto labore laudantium nesciunt optio praesentium quia quibusdam quidem quis quisquam quo rem
                         rerum sed suscipit tempora.

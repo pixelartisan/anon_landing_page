@@ -36,7 +36,10 @@ const Locations = () => (
         <main className="policy-hero">
             <NavBar MenuItem={MenuItem}/>
             <section className="section section--padding">
-                <Preamble title="Buy Proxies now">
+                <Preamble light title="Buy Proxies now">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cupiditate, debitis excepturi
+                    fuga illum iusto magni necessitatibus, non optio perferendis possimus quas quos reprehenderit
+                    repudiandae sit soluta totam unde voluptas?
                 </Preamble>
             </section>
 
