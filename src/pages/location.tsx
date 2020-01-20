@@ -59,7 +59,7 @@ const btnTitle = 'Buy ' + locationName + ' ' + productNameHuman;
 
 
 
-const Location = () => (
+const LocationPage = () => (
     <React.Fragment>
         <Helmet>
             <title>Http proxies</title>
@@ -82,4 +82,4 @@ const Location = () => (
     </React.Fragment>
 );
 
-export default Location;
+export default LocationPage;
