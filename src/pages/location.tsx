@@ -32,7 +32,7 @@ import requestHandler from "../utils/request";
 import LocationText from "../components/locationtext";
 
 
-const search = location.search; // could be '?foo=bar'
+const search = document.location.search; // could be '?foo=bar'
 const params = new URLSearchParams(search);
 const locationName = params.get('location'); // location
 const productName = params.get('product'); // location
