@@ -38,6 +38,7 @@ import {DEFAULT_TAG, LOCATIONS_URL, LOCATION_ROUTE} from '../../constants';
 
 // Interfaces
 import {ILocationsResponse, ICountries} from '../../interfaces';
+import ProductsHero from "../hero/productsHero";
 
 const products = [{
     value: 'proxy',
@@ -78,7 +79,7 @@ interface State {
 
 const mapBaseColor = shadeColor('#00b4ff', 0.2);
 
-class Datacenters2 extends React.Component<Props, State> {
+class LocationText extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
@@ -96,6 +97,9 @@ class Datacenters2 extends React.Component<Props, State> {
 
     componentDidMount() {
         const {doSetLocationsData} = this.props;
+        const search = location.search; // could be '?foo=bar'
+        const params = new URLSearchParams(search);
+        const locationName = params.get('location'); // location
 
         requestHandler(LOCATIONS_URL)
             .then(({data, error}) => {
@@ -104,10 +108,23 @@ class Datacenters2 extends React.Component<Props, State> {
                     return;
                 }
 
+                this.continents = data.continents;
+                for (let i = 0; i < data.continents.length; i++) {
+                    const {countries} = data.continents[i];
+                    for (let e = 0; e < countries.length; e++) {
+                        if (countries[e]['name'] == locationName) {
+                            this.countryData = countries[e];
+                            doSetLocationsData(countries[e]);
+                        }
 
-                doSetLocationsData(data);
+                    }
+                }
+
+
             })
             .catch(console.error);
+
+
     }
 
     countryHasSelectedProducts(iso3) {
@@ -215,62 +232,34 @@ class Datacenters2 extends React.Component<Props, State> {
             value: tag,
             label: tag
         }));
+        const search = location.search; // could be '?foo=bar'
+        const params = new URLSearchParams(search);
+        const locationName = params.get('location'); // location
 
         const selectedTagsWithoutDefault = tagOptions ? [...tagOptions] : [];
         selectedTagsWithoutDefault.shift();
 
+        var cityCount = 0;
+        var citiesString = '';
+        var citiesStringNames = '';
+        if (this.countryData) {
+            cityCount = this.countryData['states'].length;
+            console.log(this.countryData['states'].length);
+
+            for (let e = 0; e < this.countryData['states'].length; e++) {
+                if(e == 0){
+                    citiesString += this.countryData['states'][e]['name'];
+                } else{
+                    citiesString += ', '+this.countryData['states'][e]['name'];
+                }
+
+            }
+
+        }
+
         return (
-            <section className="datacenters section ">
-                <Container>
-                    <Preamble title="Our available locations and services">
-                    </Preamble>
 
-
-                    <table className="table table-striped w-100">
-                        <thead>
-                        <tr>
-                            <th scope="col">ISO</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Products</th>
-                            <th scope="col">Tags</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {this.props.countries.map((item, key) =>
-                            <tr key={key}>
-                                <th scope="row">{item.iso}</th>
-                                <td>{item.name}</td>
-
-                                <td>{item.products.map((product, i) => {
-                                        const countryName = item.name;
-                                        const productName = product;
-
-                                        const productLink = LOCATION_ROUTE+'?location='+item.name+'&product='+productName;
-
-                                        switch (productName) {
-                                            case 'shared_proxy':
-                                                return <a href={productLink} className={'btn red'} key={i} >[ Shared Proxy ] </a>
-                                            case 'shared_socks':
-                                                return <a href={productLink} className={'btn green'} key={i} >[ Shared SOCKS5 ] </a>
-                                            case 'socks':
-                                                return <a href={productLink} className={'btn blue'} key={i} >[ Dedicated SOCKS5 ] </a>
-                                            case 'proxy':
-                                                return <a href={productLink} className={'btn purple'} key={i} >[ Dedicated Proxy ] </a>
-
-                                        }
-
-                                    }
-                                )}</td>
-
-                                <td><span>{item.tags[1]}</span></td>
-
-                            </tr>
-                        )}
-
-                        </tbody>
-                    </table>
-                </Container>
-            </section>
+            <span>{cityCount} cities in total: {citiesString}.</span>
         );
     }
 }
@@ -286,4 +275,4 @@ const mapDispatchToProps = (dispatch) => ({
     hide: () => dispatch(hide())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Datacenters2);
+export default connect(mapStateToProps, mapDispatchToProps)(LocationText);

@@ -14,31 +14,36 @@
   }
 
   .table {
-    td{
+    td {
       font-weight: 600;
     }
-    span{
+
+    span {
       font-weight: 600;
     }
+
     a, span {
       font-weight: 600;
+      color: #fff;
+      margin: 0 5px;
 
       &.red {
-        color: red;
+        background: #ED0317;
       }
 
       &.blue {
-        color: blue;
+        background: #2E74D1;
       }
 
       &.purple {
-        color: purple;
+        background: #61357F;
       }
 
       &.green {
-        color: green;
+        background: #44742C;
       }
-      &:hover{
+
+      &:hover {
         text-decoration: underline;
       }
     }

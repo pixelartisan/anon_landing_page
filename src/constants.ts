@@ -16,7 +16,7 @@ export const REFUNDS_ROUTE = '/refunds';
 export const PRIVACY_ROUTE = '/privacy-policy';
 export const PRICING_ROUTE = '/pricing';
 export const LOCATIONS_ROUTE = '/locations';
-
+export const LOCATION_ROUTE = '/location';
 
 // App config
 export const SCROLL_DATACENTERS = 'datacenters';

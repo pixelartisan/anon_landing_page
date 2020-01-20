@@ -60,6 +60,7 @@ export interface ILocationsResponse {
 export interface ICountries {
 	iso: string,
 	name: string,
+	states: Array<string>,
 	products: Array<string>,
 	tags: Array<string>
 }
