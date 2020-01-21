@@ -99,7 +99,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
         var citiesString = '';
         var citiesStringNames = '';
 
-        cityCount = this.countryData['states'].length;
+        cityCount = self.countryData['states'].length;
 
         var cityPural = 'city';
         if(cityCount > 1){
@@ -128,7 +128,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
                     them
                     available in our
                     stock. {locationName} {productNameHuman} locations
-                    include <span>{cityCount} {cityPural} in total: {citiesString}.</span>
+                    include <span className={faBold}>{cityCount} {cityPural} in total: {citiesString}.</span>
                 </ProductsHero>
 
 
