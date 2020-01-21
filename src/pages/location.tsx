@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+const axios = require('axios');
 // Constants
 import NavBar from '../components/navbar';
 import MenuItem from '../components/navbar/secondaryMenuItem';
@@ -16,9 +17,11 @@ import {
     SEO_DESCRIPTION,
     SEO_KEYWORDS
 } from '../settings';
-import LocationText from "../components/locationtext";
+
 import {DEFAULT_TAG, LOCATIONS_URL} from "../constants";
 import requestHandler from "../utils/request";
+import get from 'lodash/get';
+import {setLocationsData} from '../actions';
 
 interface Props {
 
@@ -28,40 +31,51 @@ interface State {
 
 }
 
-class LocationPage extends React.Component<Props, State> {
+interface CountryData {
+
+}
+
+
+class LocationPage extends React.Component<Props, State, CountryData> {
     constructor(props: Props) {
         super(props);
 
 
     }
+
     render() {
         const search = this.props.location.search; // could be '?foo=bar'
         const params = new URLSearchParams(search);
         const locationName = params.get('location'); // location
         const productName = params.get('product'); // location
 
-        requestHandler(LOCATIONS_URL)
-            .then(({data, error}) => {
-                if (error) {
-                    console.error(error);
-                    return;
-                }
+        var self = this;
+        axios.get(LOCATIONS_URL)
+            .then(function (response) {
+                // handle success
+                const continents = response.data.data.continents;
+                for (let i = 0; i < continents.length; i++) {
+                    const {countries} = continents[i];
 
-                this.continents = data.continents;
-                for (let i = 0; i < data.continents.length; i++) {
-                    const {countries} = data.continents[i];
                     for (let e = 0; e < countries.length; e++) {
-                        if (countries[e]['name'] == locationName) {
-                            this.countryData = countries[e];
+
+                        if (countries[e].name == locationName) {
+
+                            self.countryData = countries[e];
                         }
 
                     }
                 }
-
-
             })
-            .catch(console.error);
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
 
+        console.log(this);
         var productNameHuman = 'Proxy';
         switch (productName) {
             case 'shared_proxy':
@@ -78,21 +92,21 @@ class LocationPage extends React.Component<Props, State> {
                 break;
 
         }
-       const pageTitle = locationName + ' ' + productNameHuman;
+        const pageTitle = locationName + ' ' + productNameHuman;
         const btnTitle = 'Buy ' + locationName + ' ' + productNameHuman;
 
         var cityCount = 0;
         var citiesString = '';
         var citiesStringNames = '';
         if (this.countryData) {
+
             cityCount = this.countryData['states'].length;
 
-
             for (let e = 0; e < this.countryData['states'].length; e++) {
-                if(e == 0){
+                if (e == 0) {
                     citiesString += this.countryData['states'][e]['name'];
-                } else{
-                    citiesString += ', '+this.countryData['states'][e]['name'];
+                } else {
+                    citiesString += ', ' + this.countryData['states'][e]['name'];
                 }
 
             }
@@ -108,11 +122,12 @@ class LocationPage extends React.Component<Props, State> {
 
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
                     Buy {productNameHuman} from {locationName} !
-                    If you're looking to purchase {productNameHuman} from {locationName} look no further because we have them
+                    If you're looking to purchase {productNameHuman} from {locationName} look no further because we have
+                    them
                     available in our
-                    stock. {locationName} {productName} locations include   <span>{cityCount} cities in total: {citiesString}.</span>
+                    stock. {locationName} {productName} locations
+                    include <span>{cityCount} cities in total: {citiesString}.</span>
                 </ProductsHero>
-
 
 
                 <Extra/>
