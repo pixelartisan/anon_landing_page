@@ -97,7 +97,7 @@ class LocationText extends React.Component<Props, State> {
 
     componentDidMount() {
         const {doSetLocationsData} = this.props;
-        const search = location.search; // could be '?foo=bar'
+        const search = this.props.location.search;
         const params = new URLSearchParams(search);
         const locationName = params.get('location'); // location
 
@@ -244,7 +244,7 @@ class LocationText extends React.Component<Props, State> {
         var citiesStringNames = '';
         if (this.countryData) {
             cityCount = this.countryData['states'].length;
-            console.log(this.countryData['states'].length);
+
 
             for (let e = 0; e < this.countryData['states'].length; e++) {
                 if(e == 0){
