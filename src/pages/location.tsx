@@ -42,8 +42,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
 
 
     }
-
-    render() {
+    componentDidMount() {
         const search = this.props.location.search; // could be '?foo=bar'
         const params = new URLSearchParams(search);
         const locationName = params.get('location'); // location
@@ -74,7 +73,14 @@ class LocationPage extends React.Component<Props, State, CountryData> {
             .finally(function () {
                 // always executed
             });
+    }
 
+    render() {
+
+        const search = this.props.location.search; // could be '?foo=bar'
+        const params = new URLSearchParams(search);
+        const locationName = params.get('location'); // location
+        const productName = params.get('product'); // location
 
         var productNameHuman = 'Proxy';
         switch (productName) {
@@ -99,20 +105,21 @@ class LocationPage extends React.Component<Props, State, CountryData> {
         var citiesString = '';
         var citiesStringNames = '';
 
-        cityCount = self.countryData['states'].length;
+        console.log(this);
+
+        cityCount = this.countryData['states'].length;
 
         var cityPural = 'city';
-        if(cityCount > 1){
+        if (cityCount > 1) {
             cityPural = 'cities';
         }
-        for (let e = 0; e < self.countryData['states'].length; e++) {
+        for (let e = 0; e < this.countryData['states'].length; e++) {
             if (e == 0) {
-                citiesString += self.countryData['states'][e]['name'];
+                citiesString += this.countryData['states'][e]['name'];
             } else {
-                citiesString += ', ' + self.countryData['states'][e]['name'];
+                citiesString += ', ' + this.countryData['states'][e]['name'];
             }
         }
-
 
         return (
             <React.Fragment>
@@ -128,7 +135,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
                     them
                     available in our
                     stock. {locationName} {productNameHuman} locations
-                    include <span className={faBold}>{cityCount} {cityPural} in total: {citiesString}.</span>
+                    include <span>{cityCount} {cityPural} in total: {citiesString}.</span>
                 </ProductsHero>
 
 
