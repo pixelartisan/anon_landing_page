@@ -33,10 +33,12 @@ class LocationPage extends React.Component<Props, State> {
         super(props);
 
 
+    }
+    render() {
         const search = this.props.location.search; // could be '?foo=bar'
         const params = new URLSearchParams(search);
         const locationName = params.get('location'); // location
-
+        const productName = params.get('product'); // location
 
         requestHandler(LOCATIONS_URL)
             .then(({data, error}) => {
@@ -59,15 +61,6 @@ class LocationPage extends React.Component<Props, State> {
 
             })
             .catch(console.error);
-
-        console.log(this);
-    }
-    render() {
-        const search = this.props.location.search; // could be '?foo=bar'
-        const params = new URLSearchParams(search);
-        const locationName = params.get('location'); // location
-        const productName = params.get('product'); // location
-
 
         var productNameHuman = 'Proxy';
         switch (productName) {
