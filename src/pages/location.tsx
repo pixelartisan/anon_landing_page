@@ -141,7 +141,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
         var cityPural = 'city';
 
         console.log(this);
-        if (this.countryData) {
+        if (this.countryData) { 
             cityCount = this.countryData['states'].length;
             if (cityCount > 1) {
                 cityPural = 'cities';
