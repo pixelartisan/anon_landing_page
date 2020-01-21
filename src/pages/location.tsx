@@ -17,7 +17,8 @@ import {
     SEO_KEYWORDS
 } from '../settings';
 import LocationText from "../components/locationtext";
-import {DEFAULT_TAG} from "../constants";
+import {DEFAULT_TAG, LOCATIONS_URL} from "../constants";
+import requestHandler from "../utils/request";
 
 interface Props {
 
@@ -35,30 +36,75 @@ class LocationPage extends React.Component<Props, State> {
         const search = this.props.location.search; // could be '?foo=bar'
         const params = new URLSearchParams(search);
         const locationName = params.get('location'); // location
-        const productName = params.get('product'); // location
 
 
-        this.productNameHuman = 'Proxy';
-        switch (productName) {
-            case 'shared_proxy':
-                this.productNameHuman = 'shared proxy';
-                break;
-            case 'shared_socks':
-                this.productNameHuman = 'shared SOCKS5';
-                break;
-            case 'socks':
-                this.productNameHuman = 'dedicated SOCKS5';
-                break;
-            case 'proxy':
-                this.productNameHuman = 'dedicated proxy';
-                break;
+        requestHandler(LOCATIONS_URL)
+            .then(({data, error}) => {
+                if (error) {
+                    console.error(error);
+                    return;
+                }
 
-        }
-        this.pageTitle = locationName + ' ' + this.productNameHuman;
-        this.btnTitle = 'Buy ' + locationName + ' ' + this.productNameHuman;
+                this.continents = data.continents;
+                for (let i = 0; i < data.continents.length; i++) {
+                    const {countries} = data.continents[i];
+                    for (let e = 0; e < countries.length; e++) {
+                        if (countries[e]['name'] == locationName) {
+                            this.countryData = countries[e];
+                        }
+
+                    }
+                }
+
+
+            })
+            .catch(console.error);
+
         console.log(this);
     }
     render() {
+        const search = this.props.location.search; // could be '?foo=bar'
+        const params = new URLSearchParams(search);
+        const locationName = params.get('location'); // location
+        const productName = params.get('product'); // location
+
+
+        var productNameHuman = 'Proxy';
+        switch (productName) {
+            case 'shared_proxy':
+                productNameHuman = 'shared proxy';
+                break;
+            case 'shared_socks':
+                productNameHuman = 'shared SOCKS5';
+                break;
+            case 'socks':
+                productNameHuman = 'dedicated SOCKS5';
+                break;
+            case 'proxy':
+                productNameHuman = 'dedicated proxy';
+                break;
+
+        }
+       const pageTitle = locationName + ' ' + productNameHuman;
+        const btnTitle = 'Buy ' + locationName + ' ' + productNameHuman;
+
+        var cityCount = 0;
+        var citiesString = '';
+        var citiesStringNames = '';
+        if (this.countryData) {
+            cityCount = this.countryData['states'].length;
+
+
+            for (let e = 0; e < this.countryData['states'].length; e++) {
+                if(e == 0){
+                    citiesString += this.countryData['states'][e]['name'];
+                } else{
+                    citiesString += ', '+this.countryData['states'][e]['name'];
+                }
+
+            }
+
+        }
         return (
             <React.Fragment>
                 <Helmet>
@@ -67,11 +113,11 @@ class LocationPage extends React.Component<Props, State> {
                     <meta name="keywords" content={SEO_KEYWORDS}/>
                 </Helmet>
 
-                <ProductsHero title={this.pageTitle} btnText={this.btnTitle}>
-                    Buy {this.productNameHuman} from {this.locationName} !
-                    If you're looking to purchase {this.productNameHuman} from {this.locationName} look no further because we have them
+                <ProductsHero title={pageTitle} btnText={btnTitle}>
+                    Buy {productNameHuman} from {locationName} !
+                    If you're looking to purchase {productNameHuman} from {locationName} look no further because we have them
                     available in our
-                    stock. {this.locationName} {this.productName} locations include <LocationText/>
+                    stock. {locationName} {productName} locations include   <span>{cityCount} cities in total: {citiesString}.</span>
                 </ProductsHero>
 
 
