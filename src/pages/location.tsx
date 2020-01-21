@@ -75,7 +75,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
                 // always executed
             });
 
-        console.log(this);
+
         var productNameHuman = 'Proxy';
         switch (productName) {
             case 'shared_proxy':
@@ -98,20 +98,22 @@ class LocationPage extends React.Component<Props, State, CountryData> {
         var cityCount = 0;
         var citiesString = '';
         var citiesStringNames = '';
-        if (this.countryData) {
 
-            cityCount = this.countryData['states'].length;
+        cityCount = this.countryData['states'].length;
 
-            for (let e = 0; e < this.countryData['states'].length; e++) {
-                if (e == 0) {
-                    citiesString += this.countryData['states'][e]['name'];
-                } else {
-                    citiesString += ', ' + this.countryData['states'][e]['name'];
-                }
-
-            }
-
+        var cityPural = 'city';
+        if(cityCount > 1){
+            cityPural = 'cities';
         }
+        for (let e = 0; e < self.countryData['states'].length; e++) {
+            if (e == 0) {
+                citiesString += self.countryData['states'][e]['name'];
+            } else {
+                citiesString += ', ' + self.countryData['states'][e]['name'];
+            }
+        }
+
+
         return (
             <React.Fragment>
                 <Helmet>
@@ -125,8 +127,8 @@ class LocationPage extends React.Component<Props, State, CountryData> {
                     If you're looking to purchase {productNameHuman} from {locationName} look no further because we have
                     them
                     available in our
-                    stock. {locationName} {productName} locations
-                    include <span>{cityCount} cities in total: {citiesString}.</span>
+                    stock. {locationName} {productNameHuman} locations
+                    include <span>{cityCount} {cityPural} in total: {citiesString}.</span>
                 </ProductsHero>
 
 
