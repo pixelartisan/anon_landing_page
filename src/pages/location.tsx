@@ -42,6 +42,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
 
 
     }
+
     componentDidMount() {
         const search = this.props.location.search; // could be '?foo=bar'
         const params = new URLSearchParams(search);
@@ -75,6 +76,39 @@ class LocationPage extends React.Component<Props, State, CountryData> {
             });
     }
 
+    getCountryData() {
+        const search = this.props.location.search; // could be '?foo=bar'
+        const params = new URLSearchParams(search);
+        const locationName = params.get('location'); // location
+        var req = this;
+        axios.get(LOCATIONS_URL)
+            .then(function (response) {
+                // handle success
+                const continents = response.data.data.continents;
+                for (let i = 0; i < continents.length; i++) {
+                    const {countries} = continents[i];
+
+                    for (let e = 0; e < countries.length; e++) {
+
+                        if (countries[e].name == locationName) {
+
+                            req.countryData = countries[e];
+
+                        }
+
+                    }
+                }
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+
+            });
+
+    }
+
     render() {
 
         const search = this.props.location.search; // could be '?foo=bar'
@@ -104,22 +138,23 @@ class LocationPage extends React.Component<Props, State, CountryData> {
         var cityCount = 0;
         var citiesString = '';
         var citiesStringNames = '';
+        var cityPural = 'city';
 
         console.log(this);
-
-        cityCount = this.countryData['states'].length;
-
-        var cityPural = 'city';
-        if (cityCount > 1) {
-            cityPural = 'cities';
-        }
-        for (let e = 0; e < this.countryData['states'].length; e++) {
-            if (e == 0) {
-                citiesString += this.countryData['states'][e]['name'];
-            } else {
-                citiesString += ', ' + this.countryData['states'][e]['name'];
+        if (this.countryData) {
+            cityCount = this.countryData['states'].length;
+            if (cityCount > 1) {
+                cityPural = 'cities';
+            }
+            for (let e = 0; e < this.countryData['states'].length; e++) {
+                if (e == 0) {
+                    citiesString += this.countryData['states'][e]['name'];
+                } else {
+                    citiesString += ', ' + this.countryData['states'][e]['name'];
+                }
             }
         }
+
 
         return (
             <React.Fragment>

@@ -97,7 +97,7 @@ class LocationText extends React.Component<Props, State> {
 
     componentDidMount() {
         const {doSetLocationsData} = this.props;
-        const search = this.props.location.search;
+        const search = location.search;
         const params = new URLSearchParams(search);
         const locationName = params.get('location'); // location
 
