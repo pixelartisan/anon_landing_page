@@ -3,14 +3,10 @@ import Helmet from 'react-helmet';
 
 const axios = require('axios');
 // Constants
-import NavBar from '../components/navbar';
-import MenuItem from '../components/navbar/secondaryMenuItem';
+
 import Footer from '../components/footer';
 import Extra from '../components/extra';
 import ProductsHero from '../components/hero/productsHero';
-import Pricing from '../components/pricing';
-import Features from '../components/features';
-import Reviews from '../components/reviews';
 import '../styles/components/products.scss';
 // Constants
 import {
@@ -19,11 +15,21 @@ import {
 } from '../settings';
 
 import {DEFAULT_TAG, LOCATIONS_URL} from "../constants";
+
+import {ICountries, ILocationsResponse} from "../interfaces";
 import requestHandler from "../utils/request";
-import get from 'lodash/get';
-import {setLocationsData} from '../actions';
+import {setLocationsData} from "../actions";
+import {connect} from "react-redux";
 
 interface Props {
+    doSetLocationsData(data: object): void,
+
+    hide(): void,
+
+    show(any): void,
+
+    countries: ICountries,
+    allAvailableTags: Array<string>
 
 }
 
@@ -31,19 +37,19 @@ interface State {
 
 }
 
-interface CountryData {
+interface countryInfo {
 
 }
 
 
-class LocationPage extends React.Component<Props, State, CountryData> {
+class LocationPage extends React.Component<Props, State, countryInfo> {
     constructor(props: Props) {
         super(props);
+        this.countryInfo = {};
+        this.state = {
+            text: "",
 
-
-    }
-
-    componentDidMount() {
+        };
         const search = this.props.location.search; // could be '?foo=bar'
         const params = new URLSearchParams(search);
         const locationName = params.get('location'); // location
@@ -61,7 +67,7 @@ class LocationPage extends React.Component<Props, State, CountryData> {
 
                         if (countries[e].name == locationName) {
 
-                            self.countryData = countries[e];
+                            self.countryInfo = countries[e];
                         }
 
                     }
@@ -74,39 +80,28 @@ class LocationPage extends React.Component<Props, State, CountryData> {
             .finally(function () {
                 // always executed
             });
+
     }
 
-    getCountryData() {
-        const search = this.props.location.search; // could be '?foo=bar'
-        const params = new URLSearchParams(search);
-        const locationName = params.get('location'); // location
-        var req = this;
-        axios.get(LOCATIONS_URL)
-            .then(function (response) {
-                // handle success
-                const continents = response.data.data.continents;
-                for (let i = 0; i < continents.length; i++) {
-                    const {countries} = continents[i];
+    componentDidMount() {
+        const {doSetLocationsData} = this.props;
 
-                    for (let e = 0; e < countries.length; e++) {
-
-                        if (countries[e].name == locationName) {
-
-                            req.countryData = countries[e];
-
-                        }
-
-                    }
+        requestHandler(LOCATIONS_URL)
+            .then(({data, error}) => {
+                if (error) {
+                    console.error(error);
+                    return;
                 }
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .finally(function () {
 
-            });
 
+
+            })
+            .catch(console.error);
+    }
+
+
+    changeMyVariable(value = '0sds'){
+        return value;
     }
 
     render() {
@@ -140,22 +135,33 @@ class LocationPage extends React.Component<Props, State, CountryData> {
         var citiesStringNames = '';
         var cityPural = 'city';
 
-        console.log(this);
-        if (this.countryData) { 
-            cityCount = this.countryData['states'].length;
+
+        const dat = this;
+        setTimeout(function () {
+
+
+            cityCount = dat.countryInfo.states.length;
+
             if (cityCount > 1) {
                 cityPural = 'cities';
             }
-            for (let e = 0; e < this.countryData['states'].length; e++) {
+            for (let e = 0; e < cityCount; e++) {
                 if (e == 0) {
-                    citiesString += this.countryData['states'][e]['name'];
+                    citiesString += dat.countryInfo.states[e]['name'];
                 } else {
-                    citiesString += ', ' + this.countryData['states'][e]['name'];
+                    citiesString += ', ' + dat.countryInfo.states[e]['name'];
+                    //dat.state.text.update =  cityCount+' '+cityPural+' in total: '+citiesString;
+
+
                 }
             }
-        }
+            dat.setState({text: cityCount+' '+cityPural+' in total: '+citiesString});
+
+        }, 2000);
 
 
+
+        const text = '';
         return (
             <React.Fragment>
                 <Helmet>
@@ -170,7 +176,8 @@ class LocationPage extends React.Component<Props, State, CountryData> {
                     them
                     available in our
                     stock. {locationName} {productNameHuman} locations
-                    include <span>{cityCount} {cityPural} in total: {citiesString}.</span>
+                    include <span>{this.state.text}.</span>
+
                 </ProductsHero>
 
 
@@ -181,5 +188,6 @@ class LocationPage extends React.Component<Props, State, CountryData> {
         );
     }
 }
+
 
 export default LocationPage;
