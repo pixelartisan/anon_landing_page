@@ -162,16 +162,17 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
 
 
         const text = '';
-        const canonical = this.props.location.href;
+
         return (
             <React.Fragment>
                 <Helmet>
+                    <html lang="en" />
                     <title>{productNameHuman} from {locationName}</title>
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
-                    <link rel="canonical" href={canonical} />
+                    <link rel="canonical" href={this.props.location.href} />
                 </Helmet>
-                <link rel="canonical" href={canonical} />
+
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
                     Buy {productNameHuman} from {locationName} !
                     If you're looking to purchase {productNameHuman} from {locationName} look no further because we have
@@ -179,7 +180,7 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
                     available in our
                     stock. {locationName} {productNameHuman} locations
                     include <span>{this.state.text}.</span>
-
+                    {this.props.location.href}
                 </ProductsHero>
 
 
