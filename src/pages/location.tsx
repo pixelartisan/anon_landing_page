@@ -159,8 +159,6 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
 
         }, 2000);
 
-
-
         const text = '';
 
         return (
@@ -170,7 +168,7 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
                     <title>{productNameHuman} from {locationName}</title>
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
-                    <link rel="canonical" href='https://www.bestproxy.net/location/?location=United%20Kingdom&product=proxy'/>
+                    <link rel="canonical" href={this.props.location.href}/>
                 </Helmet>
 
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
