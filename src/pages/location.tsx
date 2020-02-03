@@ -162,12 +162,14 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
 
 
         const text = '';
+        const canonical = this.props.location.href;
         return (
             <React.Fragment>
                 <Helmet>
                     <title>Http proxies</title>
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
+                    <link rel="canonical" href={canonical} />
                 </Helmet>
 
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
