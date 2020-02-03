@@ -170,7 +170,7 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
                     <title>{productNameHuman} from {locationName}</title>
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
-                    <link rel="canonical" href={this.props.location.href}/>
+                    <link rel="canonical" href='https://www.bestproxy.net/location/?location=United%20Kingdom&product=proxy'/>
                 </Helmet>
 
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
