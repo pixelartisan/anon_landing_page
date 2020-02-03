@@ -19,7 +19,7 @@ interface Props {
 const Preamble: React.FunctionComponent<Props> = ({ light = false, title, children, secondaryTitle }) => (
     <Row>
         <Col lg={{ size: 8, offset: 2 }} className={classnames('preamble', light ? 'preamble--light' : '')}>
-            <h3 className="title">{title}</h3>
+            <h1 className="title">{title}</h1>
             {secondaryTitle && <h5 className="secondaryTitle">{secondaryTitle}</h5>}
             <div className="lead">{children}</div>
         </Col>
