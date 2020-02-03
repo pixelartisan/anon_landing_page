@@ -168,9 +168,10 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
                 <Helmet>
                     <html lang="en" />
                     <title>{productNameHuman} from {locationName}</title>
+                    <base href="https://www.bestproxy.net/" target="_blank">
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
-                    <link rel="canonical" href={this.props.location.href} />
+                    <link rel="canonical" href={this.props.location.href}/>
                 </Helmet>
 
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
@@ -180,7 +181,6 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
                     available in our
                     stock. {locationName} {productNameHuman} locations
                     include <span>{this.state.text}.</span>
-                    {this.props.location.href}
                 </ProductsHero>
 
 
