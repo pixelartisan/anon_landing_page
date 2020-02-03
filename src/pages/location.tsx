@@ -166,12 +166,12 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
         return (
             <React.Fragment>
                 <Helmet>
-                    <title>Http proxies</title>
+                    <title>{productNameHuman} from {locationName}</title>
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
                     <link rel="canonical" href={canonical} />
                 </Helmet>
-
+                <link rel="canonical" href={canonical} />
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
                     Buy {productNameHuman} from {locationName} !
                     If you're looking to purchase {productNameHuman} from {locationName} look no further because we have
