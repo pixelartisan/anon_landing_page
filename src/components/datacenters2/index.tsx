@@ -262,7 +262,7 @@ class Datacenters2 extends React.Component<Props, State> {
                                     }
                                 )}</td>
 
-                                <td><span>{item.tags[1]}</span></td>
+                                <td><span className="text-black-50">{item.tags[1]}</span></td>
 
                             </tr>
                         )}
