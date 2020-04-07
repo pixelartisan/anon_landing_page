@@ -164,7 +164,10 @@ if(dat.countryInfo.states.length){
         }, 2000);
 
         const text = '';
-
+        const currentLocation = '';
+        if (typeof window !== 'undefined') {
+            const currentLocation = window.location.href;
+        }
         return (
             <React.Fragment>
                 <Helmet>
@@ -172,7 +175,8 @@ if(dat.countryInfo.states.length){
                     <title>{productNameHuman} from {locationName} | Best dedicated proxies and SOCKSv5</title>
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
-                    <link rel="canonical" href={window.location.href}/>
+
+                    <link rel="canonical" href={currentLocation}/>
                 </Helmet>
 
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
