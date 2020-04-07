@@ -139,8 +139,12 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
         const dat = this;
         setTimeout(function () {
 
+if(dat.countryInfo.states.length){
+    cityCount = dat.countryInfo.states.length;
+}else{
+    cityCount = 1
+}
 
-            cityCount = dat.countryInfo.states.length;
 
             if (cityCount > 1) {
                 cityPural = 'cities';
