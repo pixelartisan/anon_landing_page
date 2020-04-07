@@ -51,7 +51,7 @@ class MainPage extends React.Component<Props, State> {
 		return (
 			<React.Fragment>
 				<Helmet>
-					<title>Anonymous proxies and SOCKSv5</title>
+					<title>Best dedicated proxies and SOCKSv5</title>
 					<meta name="description" content={SEO_DESCRIPTION} />
 					<meta name="keywords" content={SEO_KEYWORDS} />
 					<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148896132-1"></script>

@@ -27,7 +27,7 @@ import {Container} from "reactstrap";
 const Locations = () => (
     <React.Fragment>
         <Helmet>
-            <title>Our proxies locations</title>
+            <title>Our proxies locations | Best dedicated proxies and SOCKSv5</title>
             <meta name="description" content={SEO_DESCRIPTION}/>
             <meta name="keywords" content={SEO_KEYWORDS}/>
         </Helmet>

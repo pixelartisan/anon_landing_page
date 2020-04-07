@@ -165,10 +165,10 @@ class LocationPage extends React.Component<Props, State, countryInfo> {
             <React.Fragment>
                 <Helmet>
                     <html lang="en" />
-                    <title>{productNameHuman} from {locationName}</title>
+                    <title>{productNameHuman} from {locationName} | Best dedicated proxies and SOCKSv5</title>
                     <meta name="description" content={SEO_DESCRIPTION}/>
                     <meta name="keywords" content={SEO_KEYWORDS}/>
-                    <link rel="canonical" href={this.props.location.href}/>
+                    <link rel="canonical" href={window.location.href}/>
                 </Helmet>
 
                 <ProductsHero title={pageTitle} btnText={btnTitle}>
