@@ -124,7 +124,7 @@ class Pricing extends React.Component<Props, State> {
 		const selectedProductKey = selectedProductType === 'shared' ? `shared_${selectedProduct}` : selectedProduct;
 		const selectedProductBasePrice = prices[selectedProductKey] && prices[selectedProductKey].price || 0;
 
-		return parseFloat(selectedProductBasePrice);
+		return parseFloat(selectedProductBasePrice).toFixed(2);
 	}
 
 	get quantityDiscount(): number {
