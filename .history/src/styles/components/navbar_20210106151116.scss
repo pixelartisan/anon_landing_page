@@ -155,7 +155,7 @@
         left: 15px;
         top: 10px !important;
         padding-top: 2rem;
-        color: black;
+        color: lighten($text-color-dark, 25%);
 
         &:hover {
           color: $text-color-dark;

@@ -16,8 +16,8 @@ interface Props {
 }
 
 const FooterContact: React.FunctionComponent<Props> = ({ title, content, company, location, children }) => (
-    <Col md={{ size: 6 }} className="footer__column text-left" style={{color: "white"}}>
-        <h4 style={{color: "white"}} className="text-left">{title}</h4>
+    <Col md={{ size: 6 }} className="footer__column text-left" style="color: white;">
+        <h5 style={{color: "white"}} className="text-left">{title}</h5>
         <p>
             {content}
         </p>
